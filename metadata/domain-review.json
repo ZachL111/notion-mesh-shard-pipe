@@ -1,0 +1,73 @@
+{
+  "repo": "notion-mesh-shard-pipe",
+  "language": "SQL",
+  "category": "Distributed systems",
+  "goal": "Implement an SQL distributed systems project for shard constraint solving, using bounded scenario files and conflict explanations.",
+  "review_model": {
+    "terms": [
+      "quorum health",
+      "lease drift",
+      "replica lag",
+      "membership churn"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "quorum health",
+      "signal": 47,
+      "slack": 48,
+      "drag": 10,
+      "confidence": 70,
+      "score": 182,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "lease drift",
+      "signal": 43,
+      "slack": 32,
+      "drag": 8,
+      "confidence": 88,
+      "score": 182,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "replica lag",
+      "signal": 71,
+      "slack": 31,
+      "drag": 31,
+      "confidence": 68,
+      "score": 148,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "membership churn",
+      "signal": 72,
+      "slack": 31,
+      "drag": 19,
+      "confidence": 88,
+      "score": 206,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "quorum health",
+      "signal": 75,
+      "slack": 49,
+      "drag": 32,
+      "confidence": 68,
+      "score": 171,
+      "lane": "ship"
+    }
+  ]
+}
